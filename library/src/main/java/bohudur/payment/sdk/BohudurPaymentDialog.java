@@ -103,26 +103,30 @@ public class BohudurPaymentDialog {
         LinearLayout mainLayout = new LinearLayout(context);
         mainLayout.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         mainLayout.setOrientation(LinearLayout.VERTICAL);
-
+    
         // Create a child LinearLayout
         LinearLayout childLayout = new LinearLayout(context);
         childLayout.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         childLayout.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL);
         childLayout.setOrientation(LinearLayout.VERTICAL);
-        
+    
         // Create ImageView (loader) and set it as global variable
         loader = new ImageView(context);
         loader.setId(View.generateViewId()); // Dynamically generated ID
         loader.setLayoutParams(new LinearLayout.LayoutParams(150, 150)); // Set the width and height (100dp)
         loader.setImageResource(R.drawable.ic_loader); // Set the loader image (adjust resource as needed)
-        
+    
+        // Set padding on the parent layout instead of the GradientDrawable
+        LinearLayout.LayoutParams loaderParams = (LinearLayout.LayoutParams) loader.getLayoutParams();
+        loaderParams.setMargins(10, 10, 10, 10); // Set padding-like margin for the loader
+        loader.setLayoutParams(loaderParams);
+    
         GradientDrawable background = new GradientDrawable();
         background.setColor(Color.WHITE); // Background color
         background.setCornerRadius(10); // Corner radius
         background.setStroke(0, Color.LTGRAY); // Optional border
-        background.setPadding(10,10,10,10);
         loader.setBackground(background);
-
+    
         // Create WebView and set it as global variable
         webView = new WebView(context);
         webView.setId(View.generateViewId()); // Dynamically generated ID
@@ -130,17 +134,17 @@ public class BohudurPaymentDialog {
         webView.setVisibility(View.GONE); // Set WebView visibility to gone initially
         
         WebSettings webSettings = webView.getSettings();
-		webSettings.setJavaScriptEnabled(true);
-		webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
-		webView.setWebViewClient(new WebViewClient());
-
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
+        webView.setWebViewClient(new WebViewClient());
+    
         // Add ImageView and WebView to the child layout
         childLayout.addView(loader);
         childLayout.addView(webView);
-
+    
         // Add the child layout to the main layout
         mainLayout.addView(childLayout);
-
+    
         return mainLayout;
     }
 }
