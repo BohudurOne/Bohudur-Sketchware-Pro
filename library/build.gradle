@@ -6,11 +6,11 @@ plugins {
 
 android {
     namespace 'bohudur.payment.sdk'
-    compileSdk 33
+    compileSdk 28 // Keep compileSdk at 28
 
     defaultConfig {
-        minSdk 23
-        targetSdk 33  // Explicitly set targetSdk to 33
+        minSdk 21  // Set minimum SDK to 21
+        targetSdk 28  // Keep targetSdk at 28
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -32,22 +32,14 @@ android {
         jvmTarget = '11'
     }
 
-    // Use a compatible version of Material Components and other dependencies
     dependencies {
-        implementation 'androidx.core:core-ktx:1.15.0'
-        implementation 'androidx.appcompat:appcompat:1.7.0'
-        implementation 'com.google.android.material:material:1.6.1'  // Downgraded to a stable version for SDK 33
+        implementation 'androidx.core:core-ktx:1.6.0'  // Compatible with SDK 28
+        implementation 'androidx.appcompat:appcompat:1.2.0'  // Compatible with SDK 28
+        implementation 'com.google.android.material:material:1.2.1'  // Compatible with SDK 28
         testImplementation 'junit:junit:4.13.2'
-        androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-        androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-        implementation 'com.android.volley:volley:1.2.1'
-    }
-
-    // Set the correct Android Gradle Plugin version
-    configurations.all {
-        resolutionStrategy {
-            force 'com.android.tools.build:gradle:8.9'
-        }
+        androidTestImplementation 'androidx.test.ext:junit:1.1.2'  // Compatible with SDK 28
+        androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'  // Compatible with SDK 28
+        implementation 'com.android.volley:volley:1.2.1'  // Keep Volley dependency as requested
     }
 }
 
