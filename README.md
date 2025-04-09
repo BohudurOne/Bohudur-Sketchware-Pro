@@ -1,6 +1,6 @@
 # Android-Studio-Library
 
-A simple Android Studio library published via JitPack.
+This is Bohudur Payment Android Studio Library that helps to integrate Bohudur in your Android Studio project.
 
 ## 📦 Installation
 
