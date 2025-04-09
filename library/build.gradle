@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace 'bohudur.payment.sdk'
-    compileSdk 34
+    compileSdk 33
 
     defaultConfig {
         minSdk 23
