@@ -19,13 +19,12 @@ Add the following to your `pom.xml` inside the `<project>` tag:
 
 ### Step 2: Add the dependency
 
-Replace `Tag` with the latest release tag, branch name, or commit hash.
-
+Replace `Version` with the latest release version.
 ```xml
 <dependency>
     <groupId>com.github.BohudurOne</groupId>
     <artifactId>Android-Studio-Library</artifactId>
-    <version>Tag</version>
+    <version>Version</version>
 </dependency>
 ```
 
@@ -35,11 +34,11 @@ Replace `Tag` with the latest release tag, branch name, or commit hash.
 <dependency>
     <groupId>com.github.BohudurOne</groupId>
     <artifactId>Android-Studio-Library</artifactId>
-    <version>v1.0</version>
+    <version>1.0</version>
 </dependency>
 ```
 
 ## 📚 Documentation
 
 You can find the full documentation here:  
-👉 [https://documentation.yourlink.one/](https://documentation.yourlink.one/)
+👉 [https://documentation.bohudur.one/](https://documentation.bohudur.one/)
