@@ -17,9 +17,11 @@ public class Bohudur {
     
     private final Context context;
     private String apiKey;
-    private static final String REQUEST_URL = "https://request.bohudur.one/request/create/";
-    private static final String EXECUTE_URL = "https://request.bohudur.one/request/execute/";
-    private static final String VERIFY_URL = "https://request.bohudur.one/request/verify/";
+    
+    private static final String REQUEST_URL = "https://request.bohudur.one/create/";
+    private static final String EXECUTE_URL = "https://request.bohudur.one/execute/";
+    private static final String VERIFY_URL = "https://request.bohudur.one/verify/";
+    
     private final Map<String, Object> requestData = new HashMap<>();
     private final Map<String, String> webhookData = new HashMap<>();
     private final Map<String, Object> metadata = new HashMap<>();
@@ -129,6 +131,7 @@ public class Bohudur {
 
     // Execute Request using Internal Request Executor
     public void request(Consumer<SuccessResponse> onSuccess, Consumer<FailureResponse> onCancel) {
+        
         requestData.put("webhooks", webhookData);
         requestData.put("metadata", metadata);
         requestData.put("redirect_url","default");
