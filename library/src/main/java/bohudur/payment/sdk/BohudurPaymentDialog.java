@@ -33,7 +33,7 @@ public class BohudurPaymentDialog {
         void onRedirect(String url);
     }
     
-    public BohudurPaymentDialog(Context context/*, RedirectResponse redirectResponse*/) {
+    public BohudurPaymentDialog(Context context) {
         this.redirectResponse = redirectResponse;
         showFullScreenDialog(context);
     }
@@ -45,7 +45,7 @@ public class BohudurPaymentDialog {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
                 String url = request.getUrl().toString();
-                if (url.contains("payments.blogx.top/checkout/redirect/") || url.contains("payments.blogx.top/checkout/cancelled/")) {
+                if (url.contains("checkout.bohudur.one/redirect") || url.contains("checkout.bohudur.one/cancelled")) {
                     redirectResponse.onRedirect(url);
                     dialog.dismiss();
                     return true;
@@ -88,57 +88,49 @@ public class BohudurPaymentDialog {
             dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
             dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
     
-            // Start the animation on the loader
             Animation bounceAnim = AnimationUtils.loadAnimation(context, R.anim.loading);
             loader.startAnimation(bounceAnim);
     
-            // Use modern API for system bars
             dialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             dialog.getWindow().setDimAmount(0.2f);
         }
     }
     
     private LinearLayout createDialogLayout(Context context) {
-        // Create the main LinearLayout for the dialog
         LinearLayout mainLayout = new LinearLayout(context);
         mainLayout.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         mainLayout.setOrientation(LinearLayout.VERTICAL);
 
-        // Create a child LinearLayout
         LinearLayout childLayout = new LinearLayout(context);
         childLayout.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         childLayout.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL);
         childLayout.setOrientation(LinearLayout.VERTICAL);
         
-        // Create ImageView (loader) and set it as global variable
         loader = new ImageView(context);
-        loader.setId(View.generateViewId()); // Dynamically generated ID
-        loader.setLayoutParams(new LinearLayout.LayoutParams(150, 150)); // Set the width and height (100dp)
-        loader.setImageResource(R.drawable.ic_loader); // Set the loader image (adjust resource as needed)
+        loader.setId(View.generateViewId());
+        loader.setLayoutParams(new LinearLayout.LayoutParams(150, 150));
+        loader.setImageResource(R.drawable.ic_loader);
         
         GradientDrawable background = new GradientDrawable();
-        background.setColor(Color.WHITE); // Background color
-        background.setCornerRadius(10); // Corner radius
-        background.setStroke(0, Color.LTGRAY); // Optional border
+        background.setColor(Color.WHITE);
+        background.setCornerRadius(10);
+        background.setStroke(0, Color.LTGRAY);
         background.setPadding(10,10,10,10);
         loader.setBackground(background);
 
-        // Create WebView and set it as global variable
         webView = new WebView(context);
-        webView.setId(View.generateViewId()); // Dynamically generated ID
+        webView.setId(View.generateViewId());
         webView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        webView.setVisibility(View.GONE); // Set WebView visibility to gone initially
+        webView.setVisibility(View.GONE);
         
         WebSettings webSettings = webView.getSettings();
 		webSettings.setJavaScriptEnabled(true);
 		webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
 		webView.setWebViewClient(new WebViewClient());
 
-        // Add ImageView and WebView to the child layout
         childLayout.addView(loader);
         childLayout.addView(webView);
 
-        // Add the child layout to the main layout
         mainLayout.addView(childLayout);
 
         return mainLayout;
