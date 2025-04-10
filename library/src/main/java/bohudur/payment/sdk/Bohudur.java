@@ -152,20 +152,20 @@ public class Bohudur {
                             if (response.has("responseCode") && response.getInt("responseCode") == 200) {
                                 paymentDialog.hideLoading();
                                 paymentDialog.showWebView();
+                                
                                 paymentDialog.loadWebViewAndTakePayment(
                                     response.getString("payment_url"),
                                     new BohudurPaymentDialog.RedirectResponse() {
                                         @Override
                                         public void onRedirect(String url) {
-                                            if(url.contains("payments.blogx.top/checkout/cancelled/")){
+                                            if(url.contains("checkout.bohudur.one/cancelled")){
                                                 try{
                                                     String jsonString = "{\"responseCode\":2003, \"message\": \"Payment Cancelled!\", \"status\": \"failed\"}";
                                                     JSONObject jsonObject = new JSONObject(jsonString);
                                                     onCancel.accept(new FailureResponse(jsonObject));
                                                     paymentDialog.dismiss();
                                                 }catch(JSONException e){}
-                                            }else if(url.contains("payments.blogx.top/checkout/redirect/")){
-                                                    
+                                            }else if(url.contains("checkout.bohudur.one/redirect")){
                                                 JSONObject jsonObject = new JSONObject();
                                                 try {
                                                     jsonObject.put("paymentkey", response.getString("paymentkey"));
