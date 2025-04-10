@@ -6,11 +6,11 @@ plugins {
 
 android {
     namespace 'bohudur.payment.sdk'
-    compileSdk 28 // Keep compileSdk at 28
+    compileSdk 33
 
     defaultConfig {
-        minSdk 21  // Set minimum SDK to 21
-        targetSdk 28  // Keep targetSdk at 28
+        minSdk 21  
+        targetSdk 33
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
