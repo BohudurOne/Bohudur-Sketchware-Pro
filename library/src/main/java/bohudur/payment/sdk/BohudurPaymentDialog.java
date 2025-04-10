@@ -81,7 +81,7 @@ public class BohudurPaymentDialog {
     
     
     private void showFullScreenDialog(Context context) {
-        dialog = new Dialog(context);
+        dialog = new Dialog(context, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
         dialog.setContentView(createDialogLayout(context));
     
         if (dialog.getWindow() != null) {
