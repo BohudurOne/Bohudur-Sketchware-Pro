@@ -23,7 +23,7 @@ Replace `Version` with the latest release version.
 ```xml
 <dependency>
     <groupId>com.github.BohudurOne</groupId>
-    <artifactId>Android-Studio-Library</artifactId>
+    <artifactId>Bohudur-Sketchware-Pro</artifactId>
     <version>Version</version>
 </dependency>
 ```
