@@ -115,8 +115,8 @@ public class BohudurPaymentDialog {
         background.setColor(Color.WHITE);
         background.setCornerRadius(10);
         background.setStroke(0, Color.LTGRAY);
-        background.setPadding(10,10,10,10);
         loader.setBackground(background);
+        loader.setPadding(10, 10, 10, 10);
 
         webView = new WebView(context);
         webView.setId(View.generateViewId());
@@ -124,9 +124,9 @@ public class BohudurPaymentDialog {
         webView.setVisibility(View.GONE);
         
         WebSettings webSettings = webView.getSettings();
-		webSettings.setJavaScriptEnabled(true);
-		webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
-		webView.setWebViewClient(new WebViewClient());
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
+        webView.setWebViewClient(new WebViewClient());
 
         childLayout.addView(loader);
         childLayout.addView(webView);
