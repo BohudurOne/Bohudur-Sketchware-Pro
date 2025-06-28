@@ -8,7 +8,7 @@ This is Bohudur Sketchware Pro Library that helps to integrate Bohudur in your S
 ### Step 1: Add the library
 
 ```xml
-com.github.BohudurOne:Bohudur-Sketchware-Pro:1.0
+com.github.BohudurOne:Bohudur-Sketchware-Pro:1.0.1
 ```
 
 ### Step 2: Add volley library
