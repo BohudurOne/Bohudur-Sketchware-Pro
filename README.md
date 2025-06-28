@@ -20,4 +20,4 @@ com.android.volley:volley:1.2.1
 ## 📚 Documentation
 
 You can find the full documentation here:  
-👉 [https://documentation.bohudur.one/]([https://documentation.bohudur.one/](https://documentation.bohudur.one/))
+👉 [https://documentation.bohudur.one/sketchware-pro/](https://documentation.bohudur.one/sketchware-pro/)
