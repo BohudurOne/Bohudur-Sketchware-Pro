@@ -3,7 +3,7 @@
 
 This is Bohudur Sketchware Pro Library that helps to integrate Bohudur in your Sketchware project.
 
-## 📦 Installation
+## Installation
 
 ### Step 1: Add the library
 
@@ -17,7 +17,6 @@ com.github.BohudurOne:Bohudur-Sketchware-Pro:1.0.1
 com.android.volley:volley:1.2.1
 ```
 
-## 📚 Documentation
+## Documentation
 
-You can find the full documentation here:  
-👉 [https://documentation.bohudur.one/sketchware-pro/](https://documentation.bohudur.one/sketchware-pro/)
+You can find the full documentation here: [https://documentation.bohudur.one/sketchware-pro/](https://documentation.bohudur.one/sketchware-pro/)
