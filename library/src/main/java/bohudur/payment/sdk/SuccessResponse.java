@@ -9,59 +9,59 @@ public class SuccessResponse {
         this.responseData = responseData;
     }
 
-    public String getName() {
+    public String getFullName() {
         try {
-            return responseData.getString("Full Name");
+            return responseData.getString("full_name");
         } catch (Exception e) {
-            return "Unknown Name";  // Default value in case of error
+            return "Unknown Name";
         }
     }
 
     public String getEmail() {
         try {
-            return responseData.getString("Email");
+            return responseData.getString("email");
         } catch (Exception e) {
-            return "Unknown Email";  // Default value in case of error
+            return "Unknown Email";
         }
     }
 
     public double getAmount() {
         try {
-            return responseData.getDouble("Amount");
+            return responseData.getDouble("amount");
         } catch (Exception e) {
-            return 0.0;  // Default value in case of error
+            return 0.0;
         }
     }
 
     public double getConvertedAmount() {
         try {
-            return responseData.getDouble("Converted Amount");
+            return responseData.getDouble("converted_amount");
         } catch (Exception e) {
-            return 0.0;  // Default value in case of error
+            return 0.0;
         }
     }
 
     public double getTotalAmount() {
         try {
-            return responseData.getDouble("Total Amount");
+            return responseData.getDouble("total_amount");
         } catch (Exception e) {
-            return 0.0;  // Default value in case of error
+            return 0.0;
         }
     }
 
     public String getCurrency() {
         try {
-            return responseData.getString("Currency");
+            return responseData.getString("currency");
         } catch (Exception e) {
-            return "Unknown Currency";  // Default value in case of error
+            return "Unknown Currency";
         }
     }
 
     public double getCurrencyValue() {
         try {
-            return responseData.getDouble("Currency Value");
+            return responseData.getDouble("currency_value");
         } catch (Exception e) {
-            return 0.0;  // Default value in case of error
+            return 0.0;
         }
     }
 
@@ -69,71 +69,79 @@ public class SuccessResponse {
         try {
             return responseData.getString("redirect_url");
         } catch (Exception e) {
-            return "Unknown Redirect URL";  // Default value in case of error
+            return "Unknown Redirect URL";
         }
     }
 
     public String getCancelledUrl() {
         try {
-            return responseData.getString("cancelled_url");
+            return responseData.getString("cancel_url");
         } catch (Exception e) {
-            return "Unknown Cancelled URL";  // Default value in case of error
+            return "Unknown Cancelled URL";
         }
     }
-
-    public String getMethod() {
-        try {
-            return responseData.getString("Method");
-        } catch (Exception e) {
-            return "Unknown Method";  // Default value in case of error
-        }
-    }
-
-    public String getMFS() {
-        try {
-            return responseData.getString("MFS");
-        } catch (Exception e) {
-            return "Unknown MFS";  // Default value in case of error
-        }
-    }
-
-    public String getNumber() {
-        try {
-            return responseData.getString("Number");
-        } catch (Exception e) {
-            return "Unknown Number";  // Default value in case of error
-        }
-    }
-
-    public String getTrx() {
-        try {
-            return responseData.getString("Transaction ID");
-        } catch (Exception e) {
-            return "Unknown Transaction ID";  // Default value in case of error
-        }
-    }
-
+    
     public String getTime() {
-        try {
-            return responseData.getString("Payment Time");
+    	try {
+            return responseData.getString("time");
         } catch (Exception e) {
-            return "Unknown Payment Time";  // Default value in case of error
+            return "Unknown Time";
+        }
+    }
+
+    public String getPaymentMethod() {
+        try {
+            return responseData.getString("payment_method");
+        } catch (Exception e) {
+            return "Unknown MFS";
+        }
+    }
+    
+    public String getTransactionMethod() {
+        try {
+            return responseData.getString("transaction_method");
+        } catch (Exception e) {
+            return "Unknown Method";
+        }
+    }
+
+    public String getSenderNumber() {
+        try {
+            return responseData.getString("sender_number");
+        } catch (Exception e) {
+            return "Unknown Number";
+        }
+    }
+
+    public String getTransactionID() {
+        try {
+            return responseData.getString("transaction_id");
+        } catch (Exception e) {
+            return "Unknown Transaction ID";
+        }
+    }
+
+    public String getPaymentDateAndTime() {
+        try {
+            return responseData.getString("payment_date");
+        } catch (Exception e) {
+            return "Unknown Payment Time";
         }
     }
 
     public String getStatus() {
         try {
-            return responseData.getString("Status");
+            return responseData.getString("status");
         } catch (Exception e) {
-            return "Unknown Status";  // Default value in case of error
+            return "Unknown Status";
         }
     }
 
     public JSONObject getMetadata() {
         try {
-            return responseData.getJSONObject("Metadata");
+            return responseData.getJSONObject("metadata");
         } catch (Exception e) {
-            return null;  // Return null in case of error
+            return null;
         }
     }
 }
