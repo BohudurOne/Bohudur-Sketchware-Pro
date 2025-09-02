@@ -56,7 +56,7 @@ public class Bohudur {
         });
     }
     
-    public void query(String paymentkey, VerifyResponse response) {
+    public void query(String paymentkey, QueryResponse response) {
         query(paymentkey, new Consumer<SuccessResponse>() {
             @Override
             public void accept(SuccessResponse success) {
@@ -252,7 +252,7 @@ public class Bohudur {
         requestQueue.add(jsonObjectRequest);
     }
         
-    public void verify(String paymentKey, Consumer<SuccessResponse> onSuccess, Consumer<FailureResponse> onFailed) {
+    public void query(String paymentKey, Consumer<SuccessResponse> onSuccess, Consumer<FailureResponse> onFailed) {
         BohudurPaymentDialog paymentDialog = new BohudurPaymentDialog(context);
         paymentDialog.show();
         paymentDialog.hideWebView();
