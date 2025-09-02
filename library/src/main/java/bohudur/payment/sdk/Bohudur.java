@@ -264,7 +264,7 @@ public class Bohudur {
         } catch (JSONException err) {}
         
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
-            Request.Method.POST, VERIFY_URL, jsonObject,
+            Request.Method.POST, QUERY_URL, jsonObject,
             new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
